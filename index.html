@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANDLE – Nepal’s Trusted Crypto Investment Community</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-dark: #050507;
+            --text-light: #e2e8f0;
+            --text-muted: #94a3b8;
+            --neon-purple: #9d4edd;
+            --neon-blue: #00b4d8;
+            --neon-orange: #ff7900;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --font-main: 'Inter', sans-serif;
+            --font-head: 'Space Grotesk', sans-serif;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Elements */
+        .bg-glow-1, .bg-glow-2 {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: drift 15s infinite alternate ease-in-out;
+        }
+
+        .bg-glow-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--neon-purple);
+            top: -10%;
+            left: -10%;
+        }
+
+        .bg-glow-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--neon-blue);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 50px) scale(1.2); }
+        }
+
+        /* Typography & Utilities */
+        h1, h2, h3 {
+            font-family: var(--font-head);
+            font-weight: 700;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--neon-orange), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        section {
+            padding: 100px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 7, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            color: var(--neon-orange);
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-orange);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-family: var(--font-main);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-orange), #ff4500);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255, 121, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 121, 0, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            max-width: 1000px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-visual {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        .orb {
+            width: 180px;
+            height: 180px;
+            background: conic-gradient(from 180deg at 50% 50%, var(--neon-blue) 0deg, var(--neon-purple) 180deg, var(--neon-orange) 360deg);
+            border-radius: 50%;
+            margin: 0 auto;
+            animation: spin 6s linear infinite;
+            box-shadow: 0 0 40px rgba(157, 78, 221, 0.5);
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Crypto 101 Accordion Hub */
+        .accordion-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .accordion-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: rgba(0, 180, 216, 0.4);
+            box-shadow: 0 5px 20px rgba(0, 180, 216, 0.1);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 20px 25px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: var(--font-head);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .accordion-header:hover {
+            color: var(--neon-blue);
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            color: var(--neon-orange);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+            color: var(--neon-purple);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-item.active .accordion-content {
+            padding: 0 25px 25px 25px;
+        }
+
+        .accordion-content h4 {
+            color: var(--neon-orange);
+            margin: 15px 0 5px 0;
+            font-size: 1.05rem;
+        }
+
+        .accordion-content p, .accordion-content ul {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .accordion-content ul {
+            padding-left: 20px;
+        }
+
+        .accordion-content li {
+            margin-bottom: 5px;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-purple);
+            background: rgba(157, 78, 221, 0.05);
+            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-head);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .reviewer-info h4 {
+            font-size: 1rem;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* Membership / Join Section */
+        .join-wrapper {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 50px;
+            backdrop-filter: blur(12px);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            background: transparent;
+            color: var(--neon-orange);
+            border: 2px solid var(--neon-orange);
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(255, 121, 0, 0.2), inset 0 0 10px rgba(255, 121, 0, 0.1);
+        }
+
+        .btn-submit:hover {
+            background: var(--neon-orange);
+            color: #fff;
+            box-shadow: 0 0 20px var(--neon-orange), inset 0 0 15px rgba(255,255,255,0.5);
+            transform: scale(1.02);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 60px 5% 40px;
+            background: rgba(5, 5, 7, 0.95);
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--neon-blue);
+            border-color: var(--neon-blue);
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.4);
+        }
+
+        .footer-email {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .footer-email:hover {
+            color: var(--neon-orange);
+        }
+
+        .copyright {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 3rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            section { padding: 80px 5%; }
+            .join-wrapper { padding: 30px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+            .section-title { font-size: 2rem; }
+            .accordion-header { font-size: 1.05rem; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <span class="logo-icon">⟁</span> CANDLE
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#crypto-hub">Crypto 101</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#join">Join Us</a></li>
+        </ul>
+        <!-- WhatsApp Nav Link added here -->
+        <a href="https://chat.whatsapp.com/Ie6Rot0PaZJIYWIduZgFsJ?mode=gi_t" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Join WhatsApp</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <h1 class="fade-in">CANDLE – Nepal’s <span class="text-gradient">Trusted Crypto</span> Investment Community</h1>
+        <p class="fade-in">200+ verified members sharing transparent and smart insights. Master blockchain technology and market analysis.</p>
+        <div class="hero-buttons fade-in">
+            <!-- Main CTA changed to open WhatsApp Group instantly -->
+            <a href="https://chat.whatsapp.com/Ie6Rot0PaZJIYWIduZgFsJ?mode=gi_t" target="_blank" class="btn btn-primary">Join WhatsApp Group</a>
+            <a href="#crypto-hub" class="btn btn-outline">Learn Crypto Basics</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-text fade-in">
+                <h2>Redefining Crypto in <span class="text-gradient">Nepal</span></h2>
+                <p>At <strong>CANDLE</strong>, our mission is to build the most credible and transparent crypto educational ecosystem right here in Nepal. The blockchain landscape can be overwhelming, but it doesn't have to be a gamble.</p>
+                <p>We pride ourselves on a <strong>knowledge-first approach</strong>. We filter through market hype to deliver deep education, accurate technical analysis, and global tech awareness. Whether the market is bull or bear, our trusted community stands together to learn, adapt, and grow safely.</p>
+            </div>
+            <div class="about-visual fade-in">
+                <div class="orb"></div>
+                <h3 style="margin-top: 30px; color: var(--neon-blue);">Illuminating Knowledge</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2 class="section-title fade-in">Our Core <span class="text-gradient">Advantages</span></h2>
+        <p class="section-subtitle fade-in">Everything you need to navigate the crypto space safely.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🕯️</div>
+                <h3>Daily Crypto Candles</h3>
+                <p>Expert technical analysis and daily chart breakdowns to keep you ahead of market movements globally.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🇳🇵</div>
+                <h3>Trusted Nepal Community</h3>
+                <p>Connect with 200+ verified, like-minded Nepali enthusiasts sharing educational setups and vital news.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">⚡</div>
+                <h3>Real-Time Insights</h3>
+                <p>Instant alerts on macroeconomic changes, breakout patterns, and critical Web3 shifts.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🛡️</div>
+                <h3>Secure & Transparent</h3>
+                <p>No shady promises. We prioritize a transparent environment focused entirely on realistic learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crypto 101 Educational Hub -->
+    <section id="crypto-hub">
+        <h2 class="section-title fade-in">Crypto 101: <span class="text-gradient">Ultimate Knowledge Base</span></h2>
+        <p class="section-subtitle fade-in">Master the concepts. Every piece of information you need to understand the Crypto world.</p>
+
+        <div class="accordion-container fade-in">
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    1. What is Cryptocurrency & Blockchain? 
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <h4>The Blockchain</h4>
+                    <p>A blockchain is a decentralized, digital public ledger. Instead of a central bank keeping track of money, thousands of computers globally verify and record transactions. It is virtually impossible to hack or alter past records.</p>
+                    <h4>Cryptocurrency</h4>
+                    <p>Cryptocurrency is a digital or virtual currency secured by cryptography. It operates on blockchain technology. Unlike fiat money (NPR, USD), it is decentralized and not controlled by a single government.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    2. Types of Cryptocurrencies
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <h4>Bitcoin (BTC)</h4>
+                    <p>The first and largest cryptocurrency, often referred to as "Digital Gold." It is primarily used as a store of value.</p>
+                    <h4>Ethereum (ETH) & Smart Contracts</h4>
+                    <p>The second largest. Ethereum allows developers to build decentralized applications (DApps) and execute automated code called "Smart Contracts."</p>
+                    <h4>Altcoins & Memecoins</h4>
+                    <p>Any coin that is not Bitcoin is an Altcoin (e.g., Solana, Cardano). Memecoins (like Dogecoin) are driven by community hype and are extremely high-risk.</p>
+                    <h4>Stablecoins (USDT, USDC)</h4>
+                    <p>Cryptocurrencies pegged to the value of real-world assets like the US Dollar to minimize volatility.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    3. Wallets & Security (Hot vs. Cold)
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <h4>Hot Wallets (Software)</h4>
+                    <p>Wallets connected to the internet (e.g., MetaMask, Trust Wallet, Binance). Easy to use for trading, but slightly more vulnerable to online hacks.</p>
+                    <h4>Cold Wallets (Hardware)</h4>
+                    <p>Physical devices (e.g., Ledger, Trezor) that store your crypto offline. They are the safest way to hold long-term investments.</p>
+                    <h4>The Golden Rule: Your Keys, Your Crypto</h4>
+                    <p>Never share your 12 or 24-word **Seed Phrase** with anyone. If you lose it, you lose your funds forever. Not even admins will ask for it.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    4. Trading vs. Investing & Market Cycles
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <h4>Spot Trading vs. Futures</h4>
+                    <p><strong>Spot:</strong> Buying an asset and owning it. You only lose money if the asset goes to zero.<br>
+                    <strong>Futures/Leverage:</strong> Borrowing money to multiply profits. High risk! You can get "liquidated" (lose everything) if the market moves against you.</p>
+                    <h4>Bull vs. Bear Markets</h4>
+                    <p><strong>Bull Market:</strong> A cycle where prices constantly rise and market sentiment is extremely positive.<br>
+                    <strong>Bear Market:</strong> A cycle where prices drop heavily and fear dominates the market. Often the best time to accumulate assets.</p>
+                    <h4>DCA (Dollar Cost Averaging)</h4>
+                    <p>Investing a fixed amount regularly, regardless of the price. This mitigates the risk of buying at the top.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 5 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    5. Fundamental & Technical Analysis (FA vs TA)
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <h4>Technical Analysis (TA)</h4>
+                    <p>Studying charts and daily "Candles" to predict future price movements. We look at Support (floor price), Resistance (ceiling price), Volume, and indicators like RSI and MACD.</p>
+                    <h4>Fundamental Analysis (FA)</h4>
+                    <p>Evaluating the actual value of a project. We study the Whitepaper, the founding team, Tokenomics (how coins are distributed), and real-world utility.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 6 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    6. Essential Crypto Dictionary & Slang
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><strong>FOMO:</strong> Fear Of Missing Out. Buying at the top because you see others making money.</li>
+                        <li><strong>FUD:</strong> Fear, Uncertainty, Doubt. Negative news meant to panic sellers.</li>
+                        <li><strong>HODL:</strong> Hold On for Dear Life. Refusing to sell despite massive price drops.</li>
+                        <li><strong>Whale:</strong> A person or entity holding a massive amount of crypto, capable of moving market prices.</li>
+                        <li><strong>ATH / ATL:</strong> All-Time High / All-Time Low.</li>
+                        <li><strong>Rekt:</strong> Getting wrecked (losing your investment, usually via leverage).</li>
+                        <li><strong>Rug Pull:</strong> A scam where developers abandon a project and run away with investors' funds.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 7 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    7. Risk Management Psychology
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>Trading is 20% strategy and 80% psychology. At CANDLE, we teach the following rules:</p>
+                    <ul>
+                        <li><strong>Always Use Stop-Loss:</strong> An automated order to sell if the price drops to a certain level, preventing deeper losses.</li>
+                        <li><strong>The 1% Rule:</strong> Never risk more than 1-2% of your total portfolio on a single trade.</li>
+                        <li><strong>DYOR:</strong> Do Your Own Research. Never blindly follow "signals" from unknown sources.</li>
+                        <li><strong>Take Profits:</strong> Nobody ever went broke taking profits. Don't be too greedy.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 8 -->
+            <div class="accordion-item">
+                <button class="accordion-header" style="color: var(--neon-orange);">
+                    8. Note for Nepal Residents (Legal Context)
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <h4>Educational Purposes Only</h4>
+                    <p>It is important to understand that cryptocurrency trading and transactions are currently highly restricted by the Nepal Rastra Bank (NRB). <strong>CANDLE is a strictly educational and technological awareness community.</strong></p>
+                    <p>We focus on teaching the underlying technology (Blockchain, Web3, Smart Contracts) and paper-trading analysis to prepare our members for future global tech landscapes. We do not facilitate financial exchanges or illegal transactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <h2 class="section-title fade-in">Group <span class="text-gradient">Reviews</span></h2>
+        <p class="section-subtitle fade-in">See what our 200+ members have to say about CANDLE's educational impact.</p>
+
+        <div class="reviews-grid">
+            <div class="review-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Best educational community in Nepal. The Crypto 101 lessons and daily candle analysis are incredibly easy to understand."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">A</div>
+                    <div class="reviewer-info">
+                        <h4>Aarav S.</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"The safety-first approach and teaching Risk Management helped me understand market psychology without losing money. Highly recommended!"</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background: linear-gradient(135deg, #f59e0b, #ea580c);">P</div>
+                    <div class="reviewer-info">
+                        <h4>Priya M.</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card fade-in">
+                <div class="stars">★★★★☆</div>
+                <p class="review-text">"Great beginner-friendly guidance. Loving the transparent environment. Learned everything about blockchain here."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">R</div>
+                    <div class="reviewer-info">
+                        <h4>Rabin T.</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Learning about TA and FA was a game changer for my tech career. Proud to be part of this 200+ strong group!"</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background: linear-gradient(135deg, #ec4899, #be185d);">S</div>
+                    <div class="reviewer-info">
+                        <h4>Sushant K.</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Finally, a trustworthy tech group in Nepal. The admins are transparent and genuinely care about member education."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background: linear-gradient(135deg, #6366f1, #4338ca);">B</div>
+                    <div class="reviewer-info">
+                        <h4>Bina R.</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card fade-in">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"The technical analysis provided is top-tier. My understanding of Web3 has grown significantly."</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar" style="background: linear-gradient(135deg, #14b8a6, #0f766e);">N</div>
+                    <div class="reviewer-info">
+                        <h4>Niraj D.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section id="join">
+        <h2 class="section-title fade-in">Become a <span class="text-gradient">Member</span></h2>
+        <p class="section-subtitle fade-in">Fill out the form below to join our educational community.</p>
+
+        <div class="join-wrapper fade-in">
+            <form id="joinForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number (Nepal)</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="+977 98XXXXXXXX" pattern="^\+977\s?9[0-9]{9}$|^9[0-9]{9}$" required title="Enter a valid Nepal mobile number">
+                </div>
+                <div class="form-group">
+                    <label for="referral">Referral Code (Optional)</label>
+                    <input type="text" id="referral" class="form-control" placeholder="Did an existing member refer you?">
+                </div>
+                <button type="submit" class="btn-submit">Apply Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content fade-in">
+            <a href="#" class="logo" style="justify-content: center;">
+                <span class="logo-icon">⟁</span> CANDLE
+            </a>
+            
+            <div class="social-links">
+                <!-- Telegram Icon -->
+                <a href="#" class="social-icon" aria-label="Telegram">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.9 8.97c-.14.62-.51.77-1.03.48l-2.85-2.1-1.38 1.33c-.15.15-.28.28-.58.28l.21-2.9 5.28-4.77c.23-.21-.05-.33-.36-.12l-6.52 4.1-2.81-.88c-.61-.19-.62-.61.13-.91l10.98-4.23c.51-.19.95.12.83.85z"/>
+                    </svg>
+                </a>
+                
+                <!-- WhatsApp Icon (Updated with your group link) -->
+                <a href="https://chat.whatsapp.com/Ie6Rot0PaZJIYWIduZgFsJ?mode=gi_t" target="_blank" class="social-icon" aria-label="WhatsApp">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.01 2.01A10 10 0 0 0 2.2 13.91L1 18.27l4.47-1.17A9.99 9.99 0 0 0 12.01 22a10 10 0 1 0 0-19.99zm5.34 14.16c-.22.64-1.28 1.2-1.78 1.27-.42.06-.96.11-2.73-.62-2.13-.88-3.48-3.09-3.58-3.23-.11-.14-.86-1.14-.86-2.17 0-1.03.54-1.54.73-1.75.2-.21.43-.27.57-.27.14 0 .28 0 .4.01.12.01.29-.05.45.34.17.41.58 1.42.63 1.54.06.12.1.26.02.41-.08.15-.12.24-.24.38-.11.14-.24.31-.34.43-.11.11-.23.23-.1.46.12.22.54.91 1.16 1.46.8.71 1.48.93 1.7 1.05.22.12.35.1.48-.05.14-.15.59-.68.75-.92.15-.24.31-.2.52-.12.21.08 1.33.63 1.56.74.23.12.38.17.43.27.06.1.06.57-.16 1.21z"/>
+                    </svg>
+                </a>
+
+                <!-- Instagram Icon -->
+                <a href="#" class="social-icon" aria-label="Instagram">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <a href="mailto:contact@candlenepal.com" class="footer-email">contact@candlenepal.com</a>
+        </div>
+        
+        <p class="copyright">CANDLE Nepal &copy; 2024. All rights reserved. <br>Disclaimer: This platform is strictly for technological education. Cryptocurrency is volatile and involves significant risk.</p>
+    </footer>
+
+    <!-- Minimal JavaScript for interactions -->
+    <script>
+        // Scroll Animation (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // Accordion Logic
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other accordions
+                accordionItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                });
+
+                // Open this one if it wasn't already active
+                if (!isActive) {
+                    item.classList.add('active');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.maxHeight = content.scrollHeight + 50 + "px"; // +50px for padding
+                }
+            });
+        });
+
+        // Form Submit Handler (Now smartly redirects to your WhatsApp Group)
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.btn-submit');
+            const originalText = btn.textContent;
+            
+            // Neon loading feedback
+            btn.textContent = 'Processing...';
+            btn.style.background = 'var(--neon-blue)';
+            btn.style.borderColor = 'var(--neon-blue)';
+            btn.style.boxShadow = '0 0 20px var(--neon-blue)';
+            btn.style.color = '#fff';
+            
+            // Simulate submission & redirect
+            setTimeout(() => {
+                this.reset();
+                btn.textContent = 'Redirecting to WhatsApp...';
+                btn.style.background = '#10b981'; // Success Green
+                btn.style.borderColor = '#10b981';
+                btn.style.boxShadow = '0 0 20px #10b981';
+                
+                setTimeout(() => {
+                    // Open the WhatsApp link in a new tab
+                    window.open('https://chat.whatsapp.com/Ie6Rot0PaZJIYWIduZgFsJ?mode=gi_t', '_blank');
+                    
+                    // Reset button to initial neon orange state
+                    btn.textContent = originalText;
+                    btn.style.background = 'transparent';
+                    btn.style.borderColor = 'var(--neon-orange)';
+                    btn.style.boxShadow = '0 0 10px rgba(255, 121, 0, 0.2), inset 0 0 10px rgba(255, 121, 0, 0.1)';
+                    btn.style.color = 'var(--neon-orange)';
+                }, 1500);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
